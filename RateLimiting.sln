@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiting", "src\RateLimiting\RateLimiting.csproj", "{85587162-B502-46C2-A765-63C792534257}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{92135C8B-E18E-4BF4-93B0-B3F76B35B63C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E5D9E9C5-C05F-4513-937C-052304546828}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimiting.Tests", "tests\RateLimiting.Tests\RateLimiting.Tests.csproj", "{59280FF0-EBA2-4200-B6E3-EFDA2369978C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80B75E1A-48D9-46F9-B874-DC33C23B3D5F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85587162-B502-46C2-A765-63C792534257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85587162-B502-46C2-A765-63C792534257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85587162-B502-46C2-A765-63C792534257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85587162-B502-46C2-A765-63C792534257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59280FF0-EBA2-4200-B6E3-EFDA2369978C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59280FF0-EBA2-4200-B6E3-EFDA2369978C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59280FF0-EBA2-4200-B6E3-EFDA2369978C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59280FF0-EBA2-4200-B6E3-EFDA2369978C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{85587162-B502-46C2-A765-63C792534257} = {92135C8B-E18E-4BF4-93B0-B3F76B35B63C}
+		{59280FF0-EBA2-4200-B6E3-EFDA2369978C} = {E5D9E9C5-C05F-4513-937C-052304546828}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B8F2C7E-CB89-4338-BB5B-5B287BAA6E8D}
+	EndGlobalSection
+EndGlobal

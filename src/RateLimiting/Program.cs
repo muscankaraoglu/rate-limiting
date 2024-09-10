@@ -4,11 +4,34 @@ using System.Threading.RateLimiting;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRateLimiter(options =>
 {
+    options.AddSlidingWindowLimiter("ddosProtection", opt => 
+    {
+        opt.PermitLimit = 1000; // Son 10 dakika içinde en fazla 1000 istek
+        opt.Window = TimeSpan.FromMinutes(10);
+        opt.SegmentsPerWindow = 6; // Her 10 dakikalýk pencere 6 segmente bölünür
+        opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        opt.QueueLimit = 50;
+    });
+    options.OnRejected = async (context,token)=>
+    {
+        context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
+        await context.HttpContext.Response.WriteAsync("Too many requests. Please try again later.");
+    };
+    options.AddTokenBucketLimiter("tokenBucket", opt =>
+    {
+        opt.TokenLimit = 100; // Dakikada 100 jeton
+        opt.ReplenishmentPeriod = TimeSpan.FromMinutes(1);
+        opt.TokensPerPeriod = 100; // Her dakika 100 jeton eklenecek
+        opt.AutoReplenishment = true;
+        opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        opt.QueueLimit = 10; // Kuyrukta en fazla 10 istek bekletilebilir
+    });
     options.AddFixedWindowLimiter(policyName: "userPolicy", opt =>
     {
         opt.Window = TimeSpan.FromMinutes(1);
         opt.PermitLimit = 10;
     });
+   
     options.OnRejected = async (context, token) =>
     {
         context.HttpContext.Response.StatusCode = 429;

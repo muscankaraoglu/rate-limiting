@@ -15,7 +15,7 @@ namespace RateLimiting.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        [EnableRateLimiting("userPolicy")]
+        [EnableRateLimiting("fixed")]
         public int Get()
         {
             return new Random().Next(0, 999);
